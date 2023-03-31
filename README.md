@@ -31,29 +31,32 @@ Then configure the rules you want to use under the rules section.
 ```json
 {
   "rules": {
-    "sort-array-values/rule-name": 2
+    "sort-array-values/rule-name": "error"
   }
 }
 ```
 
 ## Rules
 
-# Enforce array values to be sorted (`sort-array-values`)
+### Enforce array values to be sorted (`sort-array-values`)
 
 Useful for large constant array to enforce sorting and avoid merging conflict
 
-## Rule Details
+### Rule Details
 
 Examples of **incorrect** code for this rule:
 
 ```js
-// @sortable
+// @eslint-sort-array
 const mySortableArray = ["x", "b", "a"];
 ```
 
 Examples of **correct** code for this rule:
 
 ```js
-// fill me in
+// No annotation
+const mySortableArray = ["z", "b", "x"];
+
+// @eslint-sort-array
 const mySortableArray = ["a", "b", "x"];
 ```

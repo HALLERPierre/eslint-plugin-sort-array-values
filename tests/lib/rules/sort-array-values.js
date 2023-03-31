@@ -15,15 +15,18 @@ const rule = require("../../../lib/rules/sort-array-values"),
 // Tests
 //------------------------------------------------------------------------------
 
-const ruleTester = new RuleTester();
+const ruleTester = new RuleTester({
+  parser: require.resolve("@typescript-eslint/parser"),
+});
+
 ruleTester.run("sort-array-values", rule, {
   valid: [
     {
-      code: "// @sortable\n" + "const array = ['a', 'z']",
+      code: "// @eslint-sort-array\n" + "const array = ['a', 'z']",
       parserOptions: { ecmaVersion: 6 },
     },
     {
-      code: "// @sortable\n" + "const array = ['a', 'Z']",
+      code: "// @eslint-sort-array\n" + "const array = ['a', 'Z']",
       parserOptions: { ecmaVersion: 6 },
     },
     {
@@ -34,7 +37,14 @@ ruleTester.run("sort-array-values", rule, {
 
   invalid: [
     {
-      code: "// @sortable\n" + "const array = ['z', 'a']",
+      code: "// @eslint-sort-array\n" + "const array = ['z', 'a']",
+      errors: [{ message: "Array values must be sorted", type: "Literal" }],
+      parserOptions: { ecmaVersion: 6 },
+    },
+    {
+      code:
+        "// @eslint-sort-array\n" +
+        "const array = ['a', 'b', 'c', 'd', 'z', 'a', 'zz'] as const;",
       errors: [{ message: "Array values must be sorted", type: "Literal" }],
       parserOptions: { ecmaVersion: 6 },
     },

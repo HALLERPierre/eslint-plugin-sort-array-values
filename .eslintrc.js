@@ -7,6 +7,9 @@ module.exports = {
     "plugin:eslint-plugin/recommended",
     "plugin:node/recommended",
   ],
+  rules: {
+    "node/no-unpublished-require": ["error", { devDependencies: true }],
+  },
   env: {
     node: true,
   },

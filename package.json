@@ -1,6 +1,6 @@
 {
   "name": "eslint-plugin-sort-array-values",
-  "version": "0.0.1",
+  "version": "0.0.6",
   "description": "Enforce array values to be sorted",
   "keywords": [
     "eslint",
@@ -21,6 +21,7 @@
     "requireindex": "^1.2.0"
   },
   "devDependencies": {
+    "@typescript-eslint/parser": "^5.57.0",
     "eslint": "^8.19.0",
     "eslint-doc-generator": "^1.4.3",
     "eslint-plugin-eslint-plugin": "^5.0.0",
