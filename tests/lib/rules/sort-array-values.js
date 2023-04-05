@@ -40,6 +40,7 @@ ruleTester.run("sort-array-values", rule, {
       code: "// @eslint-sort-array\n" + "const array = ['z', 'a']",
       errors: [{ message: "Array values must be sorted", type: "Literal" }],
       parserOptions: { ecmaVersion: 6 },
+      output: "// @eslint-sort-array\n" + "const array = ['a', 'z']",
     },
     {
       code:
@@ -47,6 +48,9 @@ ruleTester.run("sort-array-values", rule, {
         "const array = ['a', 'b', 'c', 'd', 'z', 'a', 'zz'] as const;",
       errors: [{ message: "Array values must be sorted", type: "Literal" }],
       parserOptions: { ecmaVersion: 6 },
+      output:
+        "// @eslint-sort-array\n" +
+        "const array = ['a', 'a', 'b', 'c', 'd', 'z', 'zz'] as const;",
     },
   ],
 });
